@@ -111,6 +111,41 @@
             bindings = <&kp DEL>;
             key-positions = <22 34>;
         };
+
+        retKM {
+            bindings = <&kp ENTER>;
+            key-positions = <20 31>;
+        };
+
+        capsJK {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <19 20>;
+        };
+
+        sqbrRT {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <4 5>;
+        };
+
+        rsqbrYU {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <6 7>;
+        };
+
+        lsqparFG {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <16 17>;
+        };
+
+        rsqparHJ {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <18 19>;
+        };
+
+        tabDF {
+            bindings = <&kp TAB>;
+            key-positions = <15 16>;
+        };
     };
 
     conditional_layers {
