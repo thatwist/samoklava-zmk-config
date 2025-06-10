@@ -186,9 +186,9 @@
 
         lower_layer {
             bindings = <
-&none  &kp LA(N1)             &kp LA(N2)         &kp LA(N3)              &kp LA(N4)            &kp LA(N5)               &kp EQUAL     &kp N7                     &kp N8                 &kp N9                   &kp PLUS              &none
-&none  &hml LCMD EXCLAMATION  &hml LALT AT_SIGN  &hml LEFT_CONTROL HASH  &hml LSHIFT DOLLAR    &kp PERCENT              &kp MINUS     &hmr RIGHT_SHIFT NUMBER_4  &hmr RIGHT_CONTROL N5  &hmr RIGHT_ALT NUMBER_6  &hmr RCMD UNDERSCORE  &none
-&none  &kp CARET              &kp AMPERSAND      &kp ASTERISK            &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp NUMBER_0  &kp NUMBER_1               &kp NUMBER_2           &kp NUMBER_3             &kp SLASH             &none
+&none  &kp LA(N1)             &kp LA(N2)         &kp LA(N3)              &kp LA(N4)            &kp LA(N5)               &kp EQUAL     &kp N7                     &kp N8                 &kp N9                   &kp LC(LS(TAB))    &none
+&none  &hml LCMD EXCLAMATION  &hml LALT AT_SIGN  &hml LEFT_CONTROL HASH  &hml LSHIFT DOLLAR    &kp PERCENT              &kp MINUS     &hmr RIGHT_SHIFT NUMBER_4  &hmr RIGHT_CONTROL N5  &hmr RIGHT_ALT NUMBER_6  &hmr RCMD LC(TAB)  &none
+&none  &kp CARET              &kp AMPERSAND      &kp ASTERISK            &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp NUMBER_0  &kp NUMBER_1               &kp NUMBER_2           &kp NUMBER_3             &kp SLASH          &none
                                                  &lt RSE ESC             &lt LWR PRINTSCREEN   &lt 2 SPACE              &mt RCMD RET  &mo RSE                    &lt LWR TAB
             >;
         };
