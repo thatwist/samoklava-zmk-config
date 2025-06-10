@@ -195,10 +195,10 @@
 
         raise_layer {
             bindings = <
-&none  &kp LG(KP_NUMBER_1)  &kp LG(KP_NUMBER_2)  &kp LG(KP_NUMBER_3)  &kp LG(KP_NUMBER_4)  &kp LG(KP_NUMBER_5)    &kp EQUAL      &kp NUMBER_7     &kp NUMBER_8            &kp RG(O)        &kp RG(P)        &none
-&none  &hml LCMD F1         &hml LALT F2         &hml LCTRL F3        &hml LSHFT F4        &kp F5                 &kp LEFT       &hmr RSHFT DOWN  &hmr UP_ARROW NUMBER_5  &hmr RALT RIGHT  &hmr RCMD MINUS  &none
-&none  &kp F6               &kp F7               &kp F8               &kp F9               &kp F10                &kp HOME       &kp PAGE_DOWN    &kp PG_UP               &kp END          &kp INSERT       &none
-                                                 &lt RSE ESC          &lt 1 ENTER          &kp GRAVE              &mt RSHFT RET  &lt 2 BSPC       &lt LWR TAB
+&none  &kp LG(KP_NUMBER_1)  &kp LG(KP_NUMBER_2)  &kp LG(KP_NUMBER_3)  &kp LG(KP_NUMBER_4)  &kp LG(KP_NUMBER_5)    &kp LG(Q)      &kp LG(LS(M))    &kp LG(F)               &kp RG(O)        &kp RG(P)            &none
+&none  &hml LCMD F1         &hml LALT F2         &hml LCTRL F3        &hml LSHFT F4        &kp F5                 &kp LEFT       &hmr RSHFT DOWN  &hmr UP_ARROW NUMBER_5  &hmr RALT RIGHT  &hmr RCMD LG(LS(Z))  &none
+&none  &kp F6               &kp F7               &kp F8               &kp F9               &kp F10                &kp HOME       &kp PAGE_DOWN    &kp PG_UP               &kp END          &kp INSERT           &none
+                                                 &mt LEFT_ALT F11     &lt 1 F12            &kp LG(D)              &mt RSHFT RET  &lt 2 LG(H)      &mt RIGHT_ALT RG(L)
             >;
         };
 
