@@ -190,16 +190,16 @@
 &none  &kp LA(N1)             &kp LA(N2)         &kp LA(N3)              &kp LA(N4)            &kp LA(N5)               &kp EQUAL     &kp N7                     &kp N8                 &kp N9                   &kp PLUS              &none
 &none  &hml LCMD EXCLAMATION  &hml LALT AT_SIGN  &hml LEFT_CONTROL HASH  &hml LSHIFT DOLLAR    &kp PERCENT              &kp MINUS     &hmr RIGHT_SHIFT NUMBER_4  &hmr RIGHT_CONTROL N5  &hmr RIGHT_ALT NUMBER_6  &hmr RCMD UNDERSCORE  &none
 &none  &kp CARET              &kp AMPERSAND      &kp ASTERISK            &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp NUMBER_0  &kp NUMBER_1               &kp NUMBER_2           &kp NUMBER_3             &kp QUESTION          &none
-                                                 &lt RSE ESC             &lt LWR PRINTSCREEN   &lt 2 SPACE              &mt RCMD RET  &mo RSE                    &lt LWR TAB
+                                                 &mt LEFT_ALT ESC        &mo LWR               &kp K_MENU               &kp ESCAPE    &mo RSE                    &mt RIGHT_ALT TAB
             >;
         };
 
         raise_layer {
             bindings = <
-&none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(N5)      &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_UP         &mmv MOVE_RIGHT  &mkp MB1    &none
-&none  &hml LCMD F1      &hml LALT F2      &hml LCTRL F3     &hml LSHFT F4     &kp F5          &kp LEFT        &hmr RSHFT DOWN  &hmr RCTRL UP_ARROW  &hmr RALT RIGHT  &mkp MB2    &none
-&none  &kp F6            &kp F7            &kp F8            &kp F9            &kp F10         &kp HOME        &kp PAGE_DOWN    &kp PG_UP            &kp END          &kp INSERT  &none
-                                           &mt LEFT_ALT F11  &lt 1 F12         &kp LEFT_GUI    &kp RSHFT       &kp RCTRL        &kp RIGHT_ALT
+&none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(N5)    &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_UP         &mmv MOVE_RIGHT  &mkp MB1    &none
+&none  &hml LCMD F1      &hml LALT F2      &hml LCTRL F3     &hml LSHFT F4     &kp F5        &kp LEFT        &hmr RSHFT DOWN  &hmr RCTRL UP_ARROW  &hmr RALT RIGHT  &mkp MB2    &none
+&none  &kp F6            &kp F7            &kp F8            &kp F9            &kp F10       &kp HOME        &kp PAGE_DOWN    &kp PG_UP            &kp END          &kp INSERT  &none
+                                           &mt LEFT_ALT F11  &kp F12           &kp C_MENU    &kp K_BACK      &kp K_FORWARD    &kp RIGHT_ALT
             >;
         };
 
