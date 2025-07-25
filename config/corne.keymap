@@ -263,16 +263,16 @@
 &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(N5)    &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_UP          &mmv MOVE_RIGHT  &mkp MB1    &none
 &none  &kp LCMD          &kp LALT          &kp LCTRL         &kp LSHFT         &F11orF12     &kp LEFT        &hmr RSHFT DOWN  &hmr RCTRL UP_ARROW   &hmr RALT RIGHT  &mkp MB2    &none
 &none  &F1orF6           &F2orF7           &F3orF8           &F4orF9           &F5orF10      &kp HOME        &kp PAGE_DOWN    &kp PG_UP             &kp END          &kp INSERT  &none
-                                           &mt LEFT_ALT TAB  &kp K_POWER       &kp K_MENU    &kp K_BACK      &kp K_FORWARD    &mt RIGHT_ALT ESCAPE
+                                           &mt LEFT_ALT TAB  &kp K_POWER       &lang_m       &kp K_BACK      &kp K_FORWARD    &mt RIGHT_ALT ESCAPE
             >;
         };
 
         adjust_layer {
             bindings = <
-&none  &bt BT_CLR    &none         &none         &none         &none           &kp PRINTSCREEN  &kp K_MUTE    &none    &none       &none        &none
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp C_BRI_UP     &kp C_VOL_UP  &lang_m  &kp K_LOCK  &none        &none
-&none  &bootloader   &none         &none         &none         &none           &kp C_BRI_DN     &kp C_VOL_DN  &none    &soft_off   &bootloader  &none
-                                   &none         &none         &none           &none            &none         &none
+&none  &bt BT_CLR    &none         &none         &none         &soft_off       &kp K_MUTE       &kp K_PREVIOUS  &kp K_PLAY_PAUSE  &kp K_NEXT  &none        &none
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp C_VOLUME_UP  &kp C_BRI_UP    &kp PRINTSCREEN   &kp K_LOCK  &none        &none
+&none  &bootloader   &none         &none         &none         &none           &kp C_VOL_DN     &kp C_BRI_DN    &none             &none       &bootloader  &none
+                                   &none         &none         &none           &none            &none           &none
             >;
         };
     };
