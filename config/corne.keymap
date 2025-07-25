@@ -254,7 +254,7 @@
 &none  &kp LA(N1)             &kp LA(N2)         &kp LA(N3)              &kp LA(N4)          &kp LA(N5)     &kp PLUS      &kp N7                     &kp N8                      &kp N9                   &kp EQUAL             &none
 &none  &hml LCMD EXCLAMATION  &hml LALT AT_SIGN  &hml LEFT_CONTROL HASH  &hml LSHIFT DOLLAR  &kp PERCENT    &kp MINUS     &hmr RIGHT_SHIFT NUMBER_4  &hmr RIGHT_CONTROL N5       &hmr RIGHT_ALT NUMBER_6  &hmr RCMD UNDERSCORE  &none
 &none  &kp CARET              &kp AMPERSAND      &kp ASTERISK            &kp GRAVE           &kp TILDE      &kp NUMBER_0  &kp NUMBER_1               &kp NUMBER_2                &kp NUMBER_3             &kp BACKSLASH         &none
-                                                 &mt LEFT_ALT TAB        &lt 2 CAPSLOCK      &lt 2 PIPE     &lt 2 K_PREV  &lt 2 K_NEXT               &mt RIGHT_ALT K_PLAY_PAUSE
+                                                 &mt LEFT_ALT TAB        &lt 2 CAPSLOCK      &lt 2 PIPE     &lt 2 K_UNDO  &lt 2 K_REDO               &mt RIGHT_ALT K_PLAY_PAUSE
             >;
         };
 
