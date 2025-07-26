@@ -166,12 +166,7 @@
             key-positions = <22 34>;
         };
 
-        retKM {
-            bindings = <&kp ENTER>;
-            key-positions = <20 31>;
-        };
-
-        capsJK {
+        escJK {
             bindings = <&kp ESCAPE>;
             key-positions = <19 20>;
         };
