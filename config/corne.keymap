@@ -237,7 +237,7 @@
         default_layer {
             bindings = <
 &none  &kp Q        &kp W        &kp E         &kp R         &kp T        &kp Y         &kp U         &kp I               &kp O        &kp P           &none
-&none  &hml LCMD A  &hml RALT S  &hml LCTRL D  &hml LSHFT F  &kp G        &kp H         &hmr RSHFT J  &hmr RCTRL K        &hmr RALT L  &hmr RCMD SEMI  &none
+&none  &hml LCMD A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G        &kp H         &hmr RSHFT J  &hmr RCTRL K        &hmr RALT L  &hmr RCMD SEMI  &none
 &none  &kp Z        &kp X        &kp C         &kp V         &kp B        &kp N         &kp M         &kp COMMA           &kp DOT      &kp FSLH        &none
                                  &mt LALT TAB  &lt 1 SPACE   &lt 2 SQT    &lt 2 ESCAPE  &lt 1 ENTER   &mt RALT BACKSPACE
             >;
@@ -263,9 +263,9 @@
 
         adjust_layer {
             bindings = <
-&none  &bt BT_CLR    &none         &none         &none         &soft_off       &kp K_MUTE       &kp K_PREVIOUS  &kp K_PLAY_PAUSE  &kp K_NEXT  &none        &none
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp C_VOLUME_UP  &kp C_BRI_UP    &none             &kp K_LOCK  &none        &none
-&none  &bootloader   &to 1         &to 2         &to 3         &none           &kp C_VOL_DN     &kp C_BRI_DN    &none             &none       &bootloader  &none
+&none  &bt BT_CLR    &none         &none         &none         &soft_off       &kp K_MUTE       &kp K_PREVIOUS  &kp K_PLAY_PAUSE    &kp K_NEXT  &none        &none
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp C_VOLUME_UP  &kp C_BRI_UP    &kp K_CONTEXT_MENU  &kp K_LOCK  &none        &none
+&none  &bootloader   &to 1         &to 2         &to 3         &none           &kp C_VOL_DN     &kp C_BRI_DN    &none               &none       &bootloader  &none
                                    &none         &none         &none           &none            &none           &none
             >;
         };
