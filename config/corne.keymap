@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define DEFAULT 0
 #define LOWER   1
@@ -236,18 +237,18 @@
 
         default_layer {
             bindings = <
-&none  &kp Q        &kp W        &kp E         &kp R         &kp T        &kp Y         &kp U         &kp I               &kp O        &kp P           &none
-&none  &hml LCMD A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G        &kp H         &hmr RSHFT J  &hmr RCTRL K        &hmr RALT L  &hmr RCMD SEMI  &none
-&none  &kp Z        &kp X        &kp C         &kp V         &kp B        &kp N         &kp M         &kp COMMA           &kp DOT      &kp FSLH        &none
-                                 &mt LALT TAB  &lt 1 SPACE   &lt 2 SQT    &lt 2 ESCAPE  &lt 1 ENTER   &mt RALT BACKSPACE
+&none  &kp Q        &kp W        &kp E         &kp R         &kp T        &kp Y         &kp U         &kp I                   &kp O            &kp P           &none
+&none  &hml LCMD A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G        &kp H         &hmr RSHFT J  &hmr RCTRL K            &hmr LEFT_ALT L  &hmr RCMD SEMI  &none
+&none  &kp Z        &kp X        &kp C         &kp V         &kp B        &kp N         &kp M         &kp COMMA               &kp DOT          &kp FSLH        &none
+                                 &mt LALT TAB  &lt 1 SPACE   &lt 2 SQT    &lt 2 ESCAPE  &lt 1 ENTER   &mt LEFT_ALT BACKSPACE
             >;
         };
 
         lower_layer {
             bindings = <
-&none  &kp LA(N1)             &kp LA(N2)         &kp LA(N3)              &kp LA(N4)          &kp LA(N5)       &kp PLUS      &kp N7                     &kp N8                 &kp N9                   &kp EQUAL             &none
-&none  &hml LCMD EXCLAMATION  &hml LALT AT_SIGN  &hml LEFT_CONTROL HASH  &hml LSHIFT DOLLAR  &kp PERCENT      &kp MINUS     &hmr RIGHT_SHIFT NUMBER_4  &hmr RIGHT_CONTROL N5  &hmr RIGHT_ALT NUMBER_6  &hmr RCMD UNDERSCORE  &none
-&none  &kp CARET              &kp AMPERSAND      &kp ASTERISK            &kp GRAVE           &kp TILDE        &kp NUMBER_0  &kp NUMBER_1               &kp NUMBER_2           &kp NUMBER_3             &kp BACKSLASH         &none
+&none  &kp LA(N1)             &kp LA(N2)         &kp LA(N3)              &kp LA(N4)          &kp LA(N5)       &kp PLUS      &kp N7                     &kp N8                 &kp N9              &kp EQUAL             &none
+&none  &hml LCMD EXCLAMATION  &hml LALT AT_SIGN  &hml LEFT_CONTROL HASH  &hml LSHIFT DOLLAR  &kp PERCENT      &kp MINUS     &hmr RIGHT_SHIFT NUMBER_4  &hmr RIGHT_CONTROL N5  &hmr LALT NUMBER_6  &hmr RCMD UNDERSCORE  &none
+&none  &kp CARET              &kp AMPERSAND      &kp ASTERISK            &kp GRAVE           &kp TILDE        &kp NUMBER_0  &kp NUMBER_1               &kp NUMBER_2           &kp NUMBER_3        &kp BACKSLASH         &none
                                                  &kp K_COPY              &lt 2 K_CUT         &lt 2 K_PASTE    &lt 2 K_UNDO  &lt 2 K_REDO               &kp PIPE
             >;
         };
@@ -255,7 +256,7 @@
         raise_layer {
             bindings = <
 &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(N5)    &none       &kp K_SCROLL_DOWN  &kp K_SCROLL_UP      &none            &kp SCROLLLOCK  &none
-&none  &kp LCMD          &kp LALT          &kp LCTRL         &kp LSHFT         &F11orF12     &kp LEFT    &hmr RSHFT DOWN    &hmr RCTRL UP_ARROW  &hmr RALT RIGHT  &kp DELETE      &none
+&none  &kp LCMD          &kp LALT          &kp LCTRL         &kp LSHFT         &F11orF12     &kp LEFT    &hmr RSHFT DOWN    &hmr RCTRL UP_ARROW  &hmr LALT RIGHT  &kp DELETE      &none
 &none  &F1orF6           &F2orF7           &F3orF8           &F4orF9           &F5orF10      &kp HOME    &kp PAGE_DOWN      &kp PG_UP            &kp END          &kp INSERT      &none
                                            &kp CAPSLOCK      &kp PRINTSCREEN   &lang_m       &kp K_BACK  &kp K_FORWARD      &caps_word
             >;
@@ -263,10 +264,10 @@
 
         adjust_layer {
             bindings = <
-&none  &bt BT_CLR    &none         &none         &none         &soft_off       &kp K_MUTE       &kp K_PREVIOUS  &kp K_PLAY_PAUSE    &kp K_NEXT  &none        &none
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp C_VOLUME_UP  &kp C_BRI_UP    &kp K_CONTEXT_MENU  &kp K_LOCK  &none        &none
-&none  &bootloader   &to 1         &to 2         &to 3         &none           &kp C_VOL_DN     &kp C_BRI_DN    &none               &none       &bootloader  &none
-                                   &none         &none         &none           &none            &none           &none
+&none  &bt BT_CLR    &none         &mmv MOVE_DOWN  &none         &soft_off       &kp K_MUTE       &kp K_PREVIOUS  &kp K_PLAY_PAUSE    &kp K_NEXT  &none        &none
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4    &kp C_VOLUME_UP  &kp C_BRI_UP    &kp K_CONTEXT_MENU  &kp K_LOCK  &none        &none
+&none  &bootloader   &to 1         &to 2           &to 3         &none           &kp C_VOL_DN     &kp C_BRI_DN    &none               &none       &bootloader  &none
+                                   &none           &none         &none           &none            &none           &none
             >;
         };
     };
