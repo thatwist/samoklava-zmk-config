@@ -248,7 +248,7 @@
         default_layer {
             bindings = <
 &none  &kp Q        &kp W        &kp E         &lt 1 R       &kp T               &kp Y              &lt 1 U       &kp I         &kp O            &kp P           &none
-&none  &hml LCMD A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G               &kp H              &hmr RSHFT J  &hmr RCTRL K  &hmr LEFT_ALT L  &hmr RCMD SEMI  &none
+&none  &hml LCMD A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &mt LCMD G          &mt RCMD H         &hmr RSHFT J  &hmr RCTRL K  &hmr LEFT_ALT L  &hmr RCMD SEMI  &none
 &none  &kp Z        &kp X        &kp C         &lt 2 V       &kp B               &kp N              &lt 2 M       &kp COMMA     &kp DOT          &kp FSLH        &none
                                  &lt 2 SPACE   &lt 1 GRAVE   &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &lt 1 SQT     &lt 2 ENTER
             >;
@@ -256,10 +256,10 @@
 
         lower_layer {
             bindings = <
-&none  &kp LA(N1)             &kp LA(N2)         &kp LA(N3)              &kp LA(N4)            &kp LA(N5)               &kp PLUS      &kp N7                     &kp N8                 &kp N9              &kp EQUAL             &none
-&none  &hml LCMD EXCLAMATION  &hml LALT AT_SIGN  &hml LEFT_CONTROL HASH  &hml LSHIFT DOLLAR    &kp PERCENT              &kp MINUS     &hmr RIGHT_SHIFT NUMBER_4  &hmr RIGHT_CONTROL N5  &hmr LALT NUMBER_6  &hmr RCMD UNDERSCORE  &none
-&none  &kp CARET              &kp AMPERSAND      &kp ASTERISK            &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp NUMBER_0  &kp NUMBER_1               &kp NUMBER_2           &kp NUMBER_3        &kp BACKSLASH         &none
-                                                 &lt 2 K_COPY            &lt 2 K_CUT           &kp K_PASTE              &kp K_UNDO    &lt 2 K_REDO               &lt 2 PIPE
+&none  &kp LA(N1)             &kp LA(N2)         &kp LA(N3)              &kp LA(N4)            &kp LA(N5)               &kp PLUS        &kp N7                     &kp N8                 &kp N9              &kp EQUAL             &none
+&none  &hml LCMD EXCLAMATION  &hml LALT AT_SIGN  &hml LEFT_CONTROL HASH  &hml LSHIFT DOLLAR    &mt LCMD PERCENT         &mt RCMD MINUS  &hmr RIGHT_SHIFT NUMBER_4  &hmr RIGHT_CONTROL N5  &hmr LALT NUMBER_6  &hmr RCMD UNDERSCORE  &none
+&none  &kp CARET              &kp AMPERSAND      &kp ASTERISK            &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp NUMBER_0    &kp NUMBER_1               &kp NUMBER_2           &kp NUMBER_3        &kp BACKSLASH         &none
+                                                 &lt 2 K_COPY            &lt 2 K_CUT           &kp K_PASTE              &kp K_UNDO      &lt 2 K_REDO               &lt 2 PIPE
             >;
         };
 
