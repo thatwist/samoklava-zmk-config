@@ -257,7 +257,7 @@
 &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(N5)    &none       &kp K_SCROLL_DOWN  &kp K_SCROLL_UP      &none            &kp SCROLLLOCK  &none
 &none  &kp LCMD          &kp LALT          &kp LCTRL         &kp LSHFT         &F11orF12     &kp LEFT    &hmr RSHFT DOWN    &hmr RCTRL UP_ARROW  &hmr LALT RIGHT  &kp DELETE      &none
 &none  &F1orF6           &F2orF7           &F3orF8           &F4orF9           &F5orF10      &kp HOME    &kp PAGE_DOWN      &kp PG_UP            &kp END          &kp INSERT      &none
-                                           &lang_m           &lt 1 CAPSLOCK    &caps_word    &kp K_BACK  &lt 1 K_FORWARD    &lt 1 PRINTSCREEN
+                                           &lang_m           &lt 1 CAPSLOCK    &caps_word    &kp K_BACK  &lt 1 K_FORWARD    &kp PRINTSCREEN
             >;
         };
 
