@@ -7,7 +7,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
 
 #define DEFAULT 0
 #define LOWER   1
@@ -265,19 +264,19 @@
 
         raise_layer {
             bindings = <
-&none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)   &kp LG(N5)    &none       &kp K_SCROLL_DOWN  &kp K_SCROLL_UP      &none            &kp SCROLLLOCK  &none
-&none  &kp LCMD          &kp LALT          &kp LCTRL         &kp LSHFT          &F11orF12     &kp LEFT    &hmr RSHFT DOWN    &hmr RCTRL UP_ARROW  &hmr LALT RIGHT  &kp DELETE      &none
-&none  &F1orF6           &F2orF7           &F3orF8           &F4orF9            &F5orF10      &kp HOME    &kp PAGE_DOWN      &kp PG_UP            &kp END          &kp INSERT      &none
-                                           &lt 1 CAPSLOCK    &lt 1 PRINTSCREEN  &lang_m       &kp K_BACK  &lt 1 K_FORWARD    &caps_word
+&none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(N5)    &none       &kp K_SCROLL_DOWN  &kp K_SCROLL_UP      &none            &kp SCROLLLOCK  &none
+&none  &kp LCMD          &kp LALT          &kp LCTRL         &kp LSHFT         &F11orF12     &kp LEFT    &hmr RSHFT DOWN    &hmr RCTRL UP_ARROW  &hmr LALT RIGHT  &kp DELETE      &none
+&none  &F1orF6           &F2orF7           &F3orF8           &F4orF9           &F5orF10      &kp HOME    &kp PAGE_DOWN      &kp PG_UP            &kp END          &kp INSERT      &none
+                                           &lang_m           &lt 1 CAPSLOCK    &caps_word    &kp K_BACK  &lt 1 K_FORWARD    &lt 1 PRINTSCREEN
             >;
         };
 
         adjust_layer {
             bindings = <
-&none  &bt BT_CLR    &none         &mmv MOVE_DOWN  &none         &soft_off       &kp K_MUTE       &kp K_PREVIOUS  &kp K_PLAY_PAUSE    &kp K_NEXT  &none        &none
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4    &kp C_VOLUME_UP  &kp C_BRI_UP    &kp K_CONTEXT_MENU  &kp K_LOCK  &none        &none
-&none  &bootloader   &to 1         &to 2           &to 3         &none           &kp C_VOL_DN     &kp C_BRI_DN    &none               &none       &bootloader  &none
-                                   &none           &none         &none           &none            &none           &none
+&none  &bt BT_CLR    &none         &none         &none         &soft_off       &kp K_MUTE       &kp K_PREVIOUS  &kp K_PLAY_PAUSE    &kp K_NEXT  &none        &none
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp C_VOLUME_UP  &kp C_BRI_UP    &kp K_CONTEXT_MENU  &kp K_LOCK  &none        &none
+&none  &bootloader   &to 1         &to 2         &to 3         &none           &kp C_VOL_DN     &kp C_BRI_DN    &none               &none       &bootloader  &none
+                                   &none         &none         &none           &none            &none           &none
             >;
         };
     };
