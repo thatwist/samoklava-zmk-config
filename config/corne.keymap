@@ -4,10 +4,23 @@
  * SPDX-License-Identifier: MIT
  */
 
+
+/*
+ * This is a keymap for Samoklava, a Corne-compatible wireless keyboard. You can use this keymap with a Corne as well.
+ * To compile, run these commands:
+ *
+ *   west build -d build/left -b nice_nano_v2 -- -DSHIELD=corne_left -DZMK_CONFIG='../../samoklava-zmk-config/config'
+ *   west build -d build/right -b nice_nano_v2 -- -DSHIELD=corne_right -DZMK_CONFIG='../../samoklava-zmk-config/config'
+ *   cp build/left/zephyr/zmk.uf2 ~/Desktop/left.uf2
+ *   cp build/right/zephyr/zmk.uf2 ~/Desktop/right.uf2
+ */
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+
+#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 
 #define DEFAULT 0
 #define LOWER   1
@@ -18,14 +31,43 @@
 #define ADJ ADJUST
 
 &mt {
+    // default
+    flavor = "hold-preferred";
     quick-tap-ms = <180>;
-    tapping-term-ms = <250>;
+    // was 180, default 200
+    tapping-term-ms = <200>;
+    // when tap before tapping-term-ms expires
+    hold-trigger-on-release;
+    // this would help with shift+mouseclick by sending preliminary hold until tapping-term-ms expires
+    // hold-while-undecided;
+    // it will output tap after hold-tap was held but no other key was pressed
+    // retro-tap;
 };
 
 &lt {
-    quick_tap_ms = <200>;
-    tapping-term-ms = <180>;
+    // default
+    flavor = "tap-preferred";
+    // was 200
+    quick_tap_ms = <180>;
+    // was 180, default 200
+    tapping-term-ms = <200>;
+    // when tap before tapping-term-ms expires
+    hold-trigger-on-release;
 };
+
+
+// possible problem with transform:
+// for some weird reason the 5x3 transform doesn't quite work for the adjust layer, it needs an extra offset
+/* / { */
+/*     chosen { */
+/*         zmk,matrix_transform = &five_column_transform; */
+/*     }; */
+/* }; */
+            //                 Key positions
+            //       0  1  2  3  4    5  6  7  8  9
+            //      10 11 12 13 14   15 16 17 18 19
+            //      20 21 22 23 24   25 26 27 28 29
+            //            30 31 32   33 34 35
 
 / {
     behaviors {
@@ -39,19 +81,23 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            // was tap-preferred, to try: hold-preferred
+            flavor = "balanced";
+            // for typing quickly
+            require-prior-idle-ms = <125>;
+            // was 250, default 200
             tapping-term-ms = <250>;
+            // for tap-then-hold
             quick-tap-ms = <180>;
             bindings = <&kp>, <&kp>;
-
+            // note that this has no actual effect for tap-preffered, only for hold-preferred or balanced
             hold-trigger-key-positions = <
                                          6  7  8  9 10
                        13 14 15 16      18 19 20 21 22
-                          26            30 31 32 33 34
+                                        30 31 32 33 34
                              36 37 38   39 40 41
             >;
-
-            // <---[[right-hand keys + all homerow mods + all thumbs]]
+            hold-trigger-on-release;
         };
 
         hmr: homerow_mods_right {
@@ -71,6 +117,15 @@
             >;
 
             // <---[[left-hand keys + all homerow mods + all thumbs]]
+        };
+
+        as: auto_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping_term_ms = <135>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
         };
 
         lock: lock {
@@ -141,6 +196,20 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        tog_on: toggle_layer_on_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer On";
+            toggle-mode = "on";
+        };
+
+        tog_off: toggle_layer_off_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer Off";
+            toggle-mode = "off";
         };
     };
 
