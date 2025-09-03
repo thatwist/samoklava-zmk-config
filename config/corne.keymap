@@ -133,7 +133,7 @@
                 13 14 15 16 17   18 19 20 21 22
                                  30 31 32 33 34
                       36 37 38   39 40 41
-            >;  // all homerow keys on the left to do multi-mods (ctrl+shift+..)
+            >;
             hold-trigger-on-release;
         };
 
@@ -336,22 +336,22 @@
         };
 
         lsqparFG {
-            bindings = <&kp LEFT_PARENTHESIS>;
+            bindings = <&kp LPAR>;
             key-positions = <16 17>;
         };
 
         rsqparHJ {
-            bindings = <&kp RIGHT_PARENTHESIS>;
+            bindings = <&kp RPAR>;
             key-positions = <18 19>;
         };
 
         rcurlMN {
-            bindings = <&kp RIGHT_BRACE>;
+            bindings = <&kp RBRC>;
             key-positions = <30 31>;
         };
 
         lcurlVB {
-            bindings = <&kp LEFT_BRACE>;
+            bindings = <&kp LBRC>;
             key-positions = <29 28>;
         };
     };
@@ -371,11 +371,11 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LEFT_GUI>,
+                <&kp LCMD>,
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
-                <&kp LGUI>;
+                <&kp LCMD>;
         };
     };
 
@@ -388,10 +388,9 @@
     //    - &mmv MOVE_DOWN/MOVE_UP/MOVE_RIGHT/MOVE_LEFT
     //    - &msc SCRL_DOWN/etc
     //  - layer/sticky for tmux/termux/browser-nav
-    //  - output selection for usb logging if needed (adjust layer)
-    //  - soft_off - this is actually needed for some keyboards without power switch
+    //  - try usb logging, output selection for usb logging if needed (adjust layer)
+    //  - soft_off - this is actually only needed for some keyboards without power switch
     //  - read all configuration docs
-    //  - try usb logging
     // notes:
     //  - keycodes: https://zmk.dev/docs/keymaps/list-of-keycodes
     //  - undo/redo/copy/cut/paste are not registered on emacs termux android (TUCPro)
@@ -414,7 +413,8 @@
                         &hmr RCMD H &hsr RSHFT J &hmr RCTRL K &hmr LALT L &hmr RCMD SEMI &none
 &none &kp Z &kp X &kp C &lt NAV V &kp B
                         &kp N &lt NAV M &kp COMMA &kp DOT &kp FSLH &none
-      &lt NAV SPACE &lt SYMB GRAVE &kp LBKT  &kp RBKT &lt SYMB SQT &lt NAV RET
+      &lt NAV SPACE &lt SYMB GRAVE &kp LBKT
+                        &kp RBKT &lt SYMB SQT &lt NAV RET
             >;
         };
 
