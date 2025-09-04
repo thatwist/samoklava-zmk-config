@@ -14,6 +14,11 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+// docs/keymaps/behaviors/mouse-emulation.md
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
+#include <dt-bindings/zmk/pointing.h>
+
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 
 #define DEFAULT 0
@@ -308,7 +313,7 @@
         mkpmclkPCOLONnav {
             bindings = <&mkp MCLK>;
             key-positions = <10 22>;
-            layers = <NAV>;
+            layers = <3>;  // NAV, but #defined alias doesn't work here
         };
 
         delSEMIFSLH {
@@ -366,32 +371,32 @@
         toggle-canary-kl {
             bindings = <&tog CANARY>;
             key-positions = <20 21>;  // kl
-            layers = <DFLT CANARY>;
+            layers = <0 1>;
         };
 
         toggle-symb-ui {
             bindings = <&tog SYMB>;
             key-positions = <7 8>;  // ui
-            layers = <DFLT CANARY SYMB>;
+            layers = <0 1 2>;
         };
 
         toggle-symb-er {
             bindings = <&tog SYMB>;
             key-positions = <3 4>;  // er
-            layers = <DFLT CANARY SYMB>;
+            layers = <0 1 2>;
         };
 
         toggle-nav-cv {
             bindings = <&tog NAV>;
             key-positions = <27 28>;  // cv
-            layers = <DFLT CANARY NAV>;
+            layers = <0 1 2 3>;  // on symbol layer as well?
         };
 
         // m, is occuppied by enter
         toggle-nav-rthumb-m {
             bindings = <&tog NAV>;
             key-positions = <31 41>;  // rthumb+m
-            layers = <DFLT CANARY NAV>;
+            layers = <0 1 2 3>;  // on symbol layer as well?
         };
     };
 
