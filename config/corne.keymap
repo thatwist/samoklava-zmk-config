@@ -285,8 +285,8 @@
     combos {
         compatible = "zmk,combos";
 
-        escAQ {
-            bindings = <&kp ESC>;
+        capsAQ {
+            bindings = <&kp CAPS>;
             key-positions = <1 13>;
         };
 
@@ -295,8 +295,8 @@
             key-positions = <19 20>;
         };
 
-        tabZA {
-            bindings = <&kp TAB>;
+        capswordZA {
+            bindings = <&caps_word>;
             key-positions = <25 13>;
         };
 
@@ -305,9 +305,16 @@
             key-positions = <15 16>;
         };
 
-        bspcPCOLON {
+        bspcPCOLONdflt {
             bindings = <&kp BSPC>;
             key-positions = <10 22>;
+        };
+
+        // hit both l/r mouse click buttons on nav layer
+        mkpmclkPCOLONnav {
+            bindings = <&mkp MCLK>;
+            key-positions = <10 22>;
+            layers = <NAV>;
         };
 
         delSEMIFSLH {
@@ -315,10 +322,11 @@
             key-positions = <22 34>;
         };
 
-        spcCV {
-            bindings = <&kp SPACE>;
-            key-positions = <27 28>;
-        };
+        /* now this is occupied by nav layer toggle */
+        /* spcCV { */
+        /*     bindings = <&kp SPACE>; */
+        /*     key-positions = <27 28>; */
+        /* }; */
 
         retCOMMAM {
             bindings = <&kp RET>;
@@ -353,6 +361,43 @@
         lcurlVB {
             bindings = <&kp LBRC>;
             key-positions = <29 28>;
+        };
+
+        to-default-sd {
+            bindings = <&tog CANARY>;
+            key-positions = <14 15>;  // sd
+        };
+
+        // on/off toggle combo for these two layers
+        toggle-canary-kl {
+            bindings = <&tog CANARY>;
+            key-positions = <20 21>;  // kl
+            layers = <DFLT CANARY>;
+        };
+
+        toggle-symb-ui {
+            bindings = <&tog SYMB>;
+            key-positions = <7 8>;  // ui
+            layers = <DFLT CANARY SYMB>;
+        };
+
+        toggle-symb-er {
+            bindings = <&tog SYMB>;
+            key-positions = <3 4>;  // er
+            layers = <DFLT CANARY SYMB>;
+        };
+
+        toggle-nav-cv {
+            bindings = <&tog NAV>;
+            key-positions = <27 28>;  // cv
+            layers = <DFLT CANARY NAV>;
+        };
+
+        // m, is occuppied by enter
+        toggle-nav-rthumb-m {
+            bindings = <&tog NAV>;
+            key-positions = <31 41>;  // rthumb+m
+            layers = <DFLT CANARY NAV>;
         };
     };
 
@@ -393,11 +438,11 @@
     //  - read all configuration docs
     // notes:
     //  - keycodes: https://zmk.dev/docs/keymaps/list-of-keycodes
-    //  - undo/redo/copy/cut/paste are not registered on emacs termux android (TUCPro)
+    //  - undo/redo/copy/cut/paste are not registered on emacs termux android (TUCPro) but registered on linux i3 as XF86.. and undo/redo registered in emacs
     //  - contextmenu is registered globally on android (TUCPro) - e.g. termux menu works, chrome page menu
     //  - forward/back are registered globally on android (TUCPro) - e.g. chrome page forward/back, termux just goes to home on 'back'
-    //  - scrolllock doesn't have effect on android, scrollup/scrolldown essentially work like pgup/pgdn (<prior>/<next> in emacs)
-    //  - right alt does't work on android for some reason, using left alt only
+    //  - scrolllock doesn't have effect on android, scrollup/scrolldown essentially work like pgup/pgdn (<prior>/<next> in emacs) but bound to XF86Scroll.. on 
+    //  - right alt does't work on android for some reason, for now using left alt only
     keymap {
         compatible = "zmk,keymap";
         default_layer {  // layer 0
@@ -422,13 +467,17 @@
             display-name = "canary-mod-layer";
             // ` l y p k  z f o u \
             // c r s t g  x   e a i
-            // j v m d b  q w . , /
+            // j v m d b  q w , . /
             //     h : -  = ' n
             bindings = <
-&none &kp GRAVE &kp L &kp Y &kp P &kp K   &kp Z &kp F &kp O &kp U &kp BSLH &none
-&none &kp C &kp R &kp S &kp T &kp G       &kp X &kp SPACE &kp E &kp A &kp I &none
-&none &kp J &kp V &kp M &kp D &kp B       &kp Q &kp W &kp DOT &kp COMMA &kp FSLH &none
-      &lt NAV H &lt SYMB COLON &kp MINUS  &kp EQUAL &lt SYMB SQT &lt NAV N
+&none &kp GRAVE &kp L &kp Y &lt SYMB P &kp AS(K)   
+                        &kp AS(Z) &lt SYMB F &kp O &kp U &kp BSLH &none
+&none &hml LCMD C &hml LALT R &hml LCTRL S &hsl LSHFT T &hml LCMD G
+                        &hmr RCMD X &hsr RSHFT SPACE &hmr RCTRL E &hmr LALT A &hmr RCMD I &none
+&none &kp J &kp V &kp M &lt NAV D &kp B
+                        &kp Q &lt NAV W &kp COMMA &kp DOT &kp FSLH &none
+      &lt NAV H &lt SYMB COLON &kp MINUS
+                        &kp EQUAL &lt SYMB SQT &lt NAV N
             >;
         };
 
@@ -437,12 +486,12 @@
             bindings = <
 &none &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5)
                           &kp PLUS &kp N7 &kp N8 &kp N9 &kp EQUAL &none
-&none &hml LCMD EXCL &hml LALT AT_SIGN &hml LCTRL HASH &hml LSHFT DLLR &mt LCMD PRCNT
+&none &hml LCMD EXCL &hml LALT AT &hml LCTRL HASH &hml LSHFT DLLR &mt LCMD PRCNT
                           &mt RCMD MINUS &hmr RSHFT N4 &hmr RCTRL N5 &hmr LALT N6 &hmr RCMD UNDER &none
 &none &kp CARET &kp AMPS &kp ASTRK &none &none
                           &kp N0 &kp N1 &kp N2 &kp N3 &kp BSLH &none
-      &lt NAV K_COPY &lt NAV K_CUT &kp K_PASTE
-                          &kp K_UNDO &lt NAV K_REDO &lt NAV PIPE
+      &mo NAV &mo NAV &none
+                          &none &mo NAV &lt NAV PIPE
             >;
         };
 
@@ -450,12 +499,12 @@
             display-name = "nav-layer";
             bindings = <
 &none &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N4) &kp LG(N5)
-                          &none &none &none &none &none &none
+                          &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &mkp LCLK &none
 &none &kp LCMD &kp LALT &kp LCTRL &kp LSHFT &F11orF12
-                          &kp LEFT &hmr RSHFT DOWN &hmr RCTRL UP &hmr LALT RIGHT &kp DEL &none
+                          &kp LEFT &hmr RSHFT DOWN &hmr RCTRL UP &hmr LALT RIGHT &mkp RCLK &none
 &none &F1orF6 &F2orF7 &F3orF8 &F4orF9 &F5orF10
                           &kp HOME &kp PG_DN &kp PG_UP &kp END &kp INS &none
-      &lang_m &lt SYMB CAPS &caps_word  &kp K_BACK &lt SYMB K_FORWARD &kp PSCRN
+      &none &mo SYMB &none  &kp K_BACK &lt SYMB K_FORWARD &none
             >;
         };
 
@@ -465,7 +514,7 @@
 &none &bt BT_CLR &none &none &none &none
                           &kp K_MUTE &kp K_PREVIOUS &kp K_PLAY_PAUSE &kp K_NEXT &none &none
 &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
-                          &kp C_VOL_UP &kp C_BRI_UP &kp K_CMENU &kp K_LOCK &none &none
+                          &kp C_VOL_UP &kp C_BRI_UP &kp K_CMENU &kp K_LOCK &kp PSCRN &none
 &none &bootloader &to DFLT &to CANARY &to SYMB &to NAV
                           &kp C_VOL_DN &kp C_BRI_DN &none &none &bootloader &none
       &none &none &none  &none &none &none
