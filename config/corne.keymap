@@ -217,7 +217,7 @@
             label = "MMVUORMSCU";
             bindings = <&mmv MOVE_UP>, <&msc SCRL_UP>;
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LALT)>;
         };
 
         mmvd_or_mscd: mmvd_or_mscd {
@@ -225,7 +225,7 @@
             label = "MMVDORMSCD";
             bindings = <&mmv MOVE_DOWN>, <&msc SCRL_DOWN>;
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LALT)>;
         };
 
         COLONorSEMI: COLONorSEMI {
