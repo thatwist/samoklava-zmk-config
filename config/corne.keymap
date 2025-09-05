@@ -321,8 +321,6 @@
             key-positions = <22 34>;
         };
 
-hhhey
-
         /* now this is occupied by nav layer toggle */
         /* spcCV { */
         /*     bindings = <&kp SPACE>; */
@@ -333,6 +331,8 @@ hhhey
             bindings = <&kp RET>;
             key-positions = <32 31>;
         };
+
+hhhey
 
         lsqbrRT {
             bindings = <&kp LBRKT>;
