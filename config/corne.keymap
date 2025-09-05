@@ -212,18 +212,18 @@
             bindings = <&lt 2 ENTER>, <&lang_m>;
         };
 
-        mmvu_or_mscu: mmvu_or_mscu {
+        mmvu_or_mscd: mmvu_or_mscu {
             compatible = "zmk,behavior-mod-morph";
-            label = "MMVUORMSCU";
-            bindings = <&mmv MOVE_UP>, <&msc SCRL_UP>;
+            label = "MMVUORMSCD";
+            bindings = <&mmv MOVE_UP>, <&msc SCRL_DOWN>;
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
 
-        mmvd_or_mscd: mmvd_or_mscd {
+        mmvd_or_mscu: mmvd_or_mscd {
             compatible = "zmk,behavior-mod-morph";
-            label = "MMVDORMSCD";
-            bindings = <&mmv MOVE_DOWN>, <&msc SCRL_DOWN>;
+            label = "MMVDORMSCU";
+            bindings = <&mmv MOVE_DOWN>, <&msc SCRL_UP>;
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
@@ -578,7 +578,7 @@
             // do i need &msc SCRL_DOWN/SCRL_UP/SCRL_RIGHT/SCRL_LEFT
             bindings = <
 &none &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LC(LS(TAB))
-                          &mmv MOVE_LEFT &mmvd_or_mscd &mmvu_or_mscu &mmv MOVE_RIGHT &mkp LCLK &none
+                          &mmv MOVE_LEFT &mmvd_or_mscu &mmvu_or_mscd &mmv MOVE_RIGHT &mkp LCLK &none
 &none &hml RCMD LG(N1) &hml LALT LG(N2) &hml LCTRL LG(N3) &hsl LSHFT LG(N4) &hml LCMD LC(TAB)
                           &hmr LCMD LEFT &hsr RSHFT DOWN &hmr RCTRL UP &hmr LALT RIGHT &mkp RCLK &none
 &none &F1orF6 &F2orF7 &F3orF8 &F4orF9 &F5orF10
