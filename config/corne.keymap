@@ -228,12 +228,20 @@
             mods = <(MOD_LALT)>;
         };
 
-        COLONorSEMI: COLONorSEMI {
+        colon_or_semi: colon_or_semi {
             compatible = "zmk,behavior-mod-morph";
-            label = "COLONORSEMI";
+            label = "COLON_OR_SEMI";
             bindings = <&kp COLON>, <&kp SEMI>;
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        lt_symb_colon_semi: layer_colon_semi {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_HOLD_COLON_SEMI";
+            bindings = <&mo SYMB>, <&colon_or_semi>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
         };
 
         F1orF6: F1orF6 {
@@ -545,7 +553,7 @@
                         &hmr RCMD X &hsr RSHFT SPACE &hmr RCTRL E &hmr LALT A &hmr RCMD I &none
 &none &kp J &kp V &kp M &lt NAV D &kp B
                         &kp Q &lt NAV W &kp COMMA &kp DOT &kp FSLH &none
-      &lt NAV H &lt SYMB COLON &kp MINUS
+      &lt NAV H &lt_symb_colon_semi &kp MINUS
                         &kp EQUAL &lt SYMB SQT &lt NAV N
             >;
         };
