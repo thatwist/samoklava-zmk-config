@@ -194,8 +194,6 @@
             tapping-term-ms = <200>;
         };
 
-hhhey
-
         lock: lock {
             compatible = "zmk,behavior-tap-dance";
             label = "LOCK";
@@ -285,6 +283,8 @@ hhhey
 
     combos {
         compatible = "zmk,combos";
+
+hhhey
 
         capsAQ {
             bindings = <&kp CAPS>;
