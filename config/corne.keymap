@@ -236,7 +236,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        lt_symb_colon_semi: layer_colon_semi {
+        lt_symb_colon_semi: lt_symb_colon_semi {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_HOLD_COLON_SEMI";
             bindings = <&mo SYMB>, <&colon_or_semi>;
