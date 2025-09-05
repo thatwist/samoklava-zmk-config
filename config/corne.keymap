@@ -313,7 +313,7 @@
         mkpmclkPCOLONnav {
             bindings = <&mkp MCLK>;
             key-positions = <10 22>;
-            layers = <3>;  // NAV, but #defined alias doesn't work here
+            layers = <NAV>;
         };
 
         delSEMIFSLH {
@@ -371,32 +371,32 @@
         toggle-canary-kl {
             bindings = <&tog CANARY>;
             key-positions = <20 21>;  // kl
-            layers = <0 1>;
+            layers = <DFLT CANARY>;
         };
 
         toggle-symb-ui {
             bindings = <&tog SYMB>;
             key-positions = <7 8>;  // ui
-            layers = <0 1 2>;
+            layers = <DFLT CANARY SYMB>;
         };
 
         toggle-symb-er {
             bindings = <&tog SYMB>;
             key-positions = <3 4>;  // er
-            layers = <0 1 2>;
+            layers = <DFLT CANARY SYMB>;
         };
 
         toggle-nav-cv {
             bindings = <&tog NAV>;
             key-positions = <27 28>;  // cv
-            layers = <0 1 2 3>;  // on symbol layer as well?
+            layers = <DFLT CANARY NAV>;
         };
 
         // m, is occuppied by enter
         toggle-nav-rthumb-m {
             bindings = <&tog NAV>;
             key-positions = <31 41>;  // rthumb+m
-            layers = <0 1 2 3>;  // on symbol layer as well?
+            layers = <DFLT CANARY NAV>;
         };
     };
 
