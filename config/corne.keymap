@@ -284,8 +284,6 @@
     combos {
         compatible = "zmk,combos";
 
-hhhey
-
         capsAQ {
             bindings = <&kp CAPS>;
             key-positions = <1 13>;
@@ -322,6 +320,8 @@ hhhey
             bindings = <&kp DEL>;
             key-positions = <22 34>;
         };
+
+hhhey
 
         /* now this is occupied by nav layer toggle */
         /* spcCV { */
