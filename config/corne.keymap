@@ -178,6 +178,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+            // not sure but this I think disables usual tap-then-tap-and-hold and always produces shift on second tap
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -209,6 +210,22 @@
             label = "LANG";
             #binding-cells = <0>;
             bindings = <&lt 2 ENTER>, <&lang_m>;
+        };
+
+        mmvu_or_mscu: mmvu_or_mscu {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MMVUORMSCU";
+            bindings = <&mmv MOVE_UP>, <&msc SCRL_UP>;
+            #binding-cells = <0>;
+            mods = <(MOD_LCTRL)>;
+        };
+
+        mmvd_or_mscd: mmvd_or_mscd {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MMVDORMSCD";
+            bindings = <&mmv MOVE_DOWN>, <&msc SCRL_DOWN>;
+            #binding-cells = <0>;
+            mods = <(MOD_LCTRL)>;
         };
 
         COLONorSEMI: COLONorSEMI {
@@ -364,52 +381,52 @@
         };
 
         to-default-sd {
-            bindings = <&to DFLT>;
+            bindings = <&to_default>;
             key-positions = <14 15>;  // sd
         };
 
         // on/off toggle combo for these two layers
-        toggle-canary-kl {
-            bindings = <&tog CANARY>;
+        to-canary-kl {
+            bindings = <&to_canary>;
             key-positions = <20 21>;  // kl
             layers = <DFLT CANARY>;
         };
 
-        toggle-symb-ui {
-            bindings = <&tog SYMB>;
+        to-symb-ui {
+            bindings = <&to_symbol>;
             key-positions = <7 8>;  // ui
             layers = <DFLT CANARY SYMB>;
         };
 
-        toggle-symb-er {
-            bindings = <&tog SYMB>;
+        to-symb-er {
+            bindings = <&to_symbol>;
             key-positions = <3 4>;  // er
             layers = <DFLT CANARY SYMB>;
         };
 
-        toggle-nav-cv {
-            bindings = <&tog NAV>;
+        to-nav-cv {
+            bindings = <&to_nav>;
             key-positions = <27 28>;  // cv
             layers = <DFLT CANARY NAV>;
         };
 
         // m, is occuppied by enter
-        toggle-nav-rthumb-m {
-            bindings = <&tog NAV>;
+        to-nav-rthumb-m {
+            bindings = <&to_nav>;
             key-positions = <31 41>;  // rthumb+m
             layers = <DFLT CANARY NAV>;
         };
 
         // v+spc for symmetry on the left
-        toggle-nav-lthumb-v {
-            bindings = <&tog NAV>;
+        to-nav-lthumb-v {
+            bindings = <&to_nav>;
             key-positions = <28 36>;  // lthumb+v
             layers = <DFLT CANARY NAV>;
         };
 
         // would this work for conditional layer?
-        toggle-misc-2rthumb {
-            bindings = <&tog NAV>;
+        to-misc-2rthumb {
+            bindings = <&to_misc>;
             key-positions = <40 41>;  // 2rthumb
         };
     };
@@ -434,6 +451,61 @@
                 <&kp SPACE>,
                 <&macro_release>,
                 <&kp LCMD>;
+        };
+
+        to_default: to_default {
+            compatible = "zmk,behavior-macro";
+            label = "TO_DFLT";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&to DFLT>,
+                <&macro_tap>,
+                <&kp F18>;
+        };
+
+        to_canary: to_canary {
+            compatible = "zmk,behavior-macro";
+            label = "TO_CANARY";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&to CANARY>,
+                <&macro_tap>,
+                <&kp F19>;
+        };
+
+        to_symbol: to_symbol {
+            compatible = "zmk,behavior-macro";
+            label = "TO_SYMBOL";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&to SYMB>,
+                <&macro_tap>,
+                <&kp F20>;
+        };
+
+        to_nav: to_nav {
+            compatible = "zmk,behavior-macro";
+            label = "TO_NAV";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&to NAV>,
+                <&macro_tap>,
+                <&kp F21>;
+        };
+
+        to_misc: to_misc {
+            compatible = "zmk,behavior-macro";
+            label = "TO_MISC";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&to MISC>,
+                <&macro_tap>,
+                <&kp F22>;
         };
     };
 
@@ -506,7 +578,7 @@
             // do i need &msc SCRL_DOWN/SCRL_UP/SCRL_RIGHT/SCRL_LEFT
             bindings = <
 &none &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LC(LS(TAB))
-                          &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &mkp LCLK &none
+                          &mmv MOVE_LEFT &mmvd_or_mscd &mmvu_or_mscu &mmv MOVE_RIGHT &mkp LCLK &none
 &none &hml RCMD LG(N1) &hml LALT LG(N2) &hml LCTRL LG(N3) &hsl LSHFT LG(N4) &hml LCMD LC(TAB)
                           &hmr LCMD LEFT &hsr RSHFT DOWN &hmr RCTRL UP &hmr LALT RIGHT &mkp RCLK &none
 &none &F1orF6 &F2orF7 &F3orF8 &F4orF9 &F5orF10
