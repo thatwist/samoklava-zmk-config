@@ -364,7 +364,7 @@
         };
 
         to-default-sd {
-            bindings = <&tog CANARY>;
+            bindings = <&to DFLT>;
             key-positions = <14 15>;  // sd
         };
 
@@ -518,13 +518,13 @@
         misc_layer {  // layer 4
             display-name = "misc-layer";
             bindings = <
-&none &none &none &none &none &none
-                          &kp K_MUTE &kp K_PREVIOUS &kp K_NEXT &kp K_PLAY_PAUSE &none &none
+&none &bootloader &none &none &none &none
+                          &kp K_MUTE &kp K_PREVIOUS &kp K_NEXT &kp K_PLAY_PAUSE &bootloader &none
 &none &none &kp LALT &kp LCTRL &kp LSHFT &kp LCMD
                           &kp C_VOL_UP &kp C_BRI_UP &kp K_CMENU &kp K_LOCK &kp PSCRN &none
 &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
                           &kp C_VOL_DN &kp C_BRI_DN &none &none &none &none
-      &bt BT_CLR &none &bootloader  &bootloader &none &none
+      &bt BT_CLR &none &none  &none &none &none
             >;
         };
     };
