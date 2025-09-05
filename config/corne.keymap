@@ -389,39 +389,39 @@
         to-canary-kl {
             bindings = <&to_canary>;
             key-positions = <20 21>;  // kl
-            layers = <DFLT CANARY>;
+            /* layers = <DFLT CANARY>; */
         };
 
         to-symb-ui {
             bindings = <&to_symbol>;
             key-positions = <7 8>;  // ui
-            layers = <DFLT CANARY SYMB>;
+            /* layers = <DFLT CANARY SYMB>; */
         };
 
         to-symb-er {
             bindings = <&to_symbol>;
             key-positions = <3 4>;  // er
-            layers = <DFLT CANARY SYMB>;
+            /* layers = <DFLT CANARY SYMB>; */
         };
 
         to-nav-cv {
             bindings = <&to_nav>;
             key-positions = <27 28>;  // cv
-            layers = <DFLT CANARY NAV>;
+            /* layers = <DFLT CANARY NAV>; */
         };
 
         // m, is occuppied by enter
         to-nav-rthumb-m {
             bindings = <&to_nav>;
             key-positions = <31 41>;  // rthumb+m
-            layers = <DFLT CANARY NAV>;
+            /* layers = <DFLT CANARY NAV>; */
         };
 
         // v+spc for symmetry on the left
         to-nav-lthumb-v {
             bindings = <&to_nav>;
             key-positions = <28 36>;  // lthumb+v
-            layers = <DFLT CANARY NAV>;
+            /* layers = <DFLT CANARY NAV>; */
         };
 
         // would this work for conditional layer?
@@ -463,7 +463,7 @@
                 <&macro_tap>,
                 <&to DFLT>,
                 <&macro_tap>,
-                <&kp F13>;
+                <&kp F14>;
         };
 
         to_canary: to_canary {
@@ -474,7 +474,7 @@
                 <&macro_tap>,
                 <&to CANARY>,
                 <&macro_tap>,
-                <&kp F14>;
+                <&kp F15>;
         };
 
         to_symbol: to_symbol {
@@ -485,7 +485,7 @@
                 <&macro_tap>,
                 <&to SYMB>,
                 <&macro_tap>,
-                <&kp F15>;
+                <&kp F16>;
         };
 
         to_nav: to_nav {
@@ -495,17 +495,6 @@
             bindings =
                 <&macro_tap>,
                 <&to NAV>,
-                <&macro_tap>,
-                <&kp F16>;
-        };
-
-        to_misc: to_misc {
-            compatible = "zmk,behavior-macro";
-            label = "TO_MISC";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&to MISC>,
                 <&macro_tap>,
                 <&kp F17>;
         };
