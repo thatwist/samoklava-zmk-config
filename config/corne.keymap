@@ -236,6 +236,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        // a placeholder like 0 should be used when using this in keymap, cause it expects 2 args
         lt_symb_colon_semi: lt_symb_colon_semi {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_HOLD_COLON_SEMI";
@@ -553,7 +554,7 @@
                         &hmr RCMD X &hsr RSHFT SPACE &hmr RCTRL E &hmr LALT A &hmr RCMD I &none
 &none &kp J &kp V &kp M &lt NAV D &kp B
                         &kp Q &lt NAV W &kp COMMA &kp DOT &kp FSLH &none
-      &lt NAV H &lt_symb_colon_semi &kp MINUS
+      &lt NAV H &lt_symb_colon_semi 0 0 &kp MINUS
                         &kp EQUAL &lt SYMB SQT &lt NAV N
             >;
         };
