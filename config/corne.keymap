@@ -59,8 +59,6 @@
     hold-trigger-on-release;
 };
 
-hhhey
-
 &mmv {
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
@@ -195,6 +193,8 @@ hhhey
             // default?
             tapping-term-ms = <200>;
         };
+
+hhhey
 
         lock: lock {
             compatible = "zmk,behavior-tap-dance";
