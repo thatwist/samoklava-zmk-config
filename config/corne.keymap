@@ -333,14 +333,12 @@
         };
 
         lsqbrRT {
-            bindings = <&kp LBRKT>;
+            bindings = <&kp LBKT>;
             key-positions = <4 5>;
         };
 
-hhhey
-
         rsqbrYU {
-            bindings = <&kp RBRKT>;
+            bindings = <&kp RBKT>;
             key-positions = <6 7>;
         };
 
