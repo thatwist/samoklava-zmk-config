@@ -462,14 +462,14 @@
             // j v m d b  q w , . /
             //     h : -  = ' n
             bindings = <
-&none AS(Q) AS(W) AS(E) &lt SYMB R &kp AS(T)
-                        &kp AS(Y) &lt SYMB U &kp I &kp O &kp P &none
-&none &hml LCMD A &hml LALT S &hml LCTRL D &hsl LSHFT F &hml LCMD G
-                        &hmr RCMD H &hsr RSHFT J &hmr RCTRL K &hmr LALT L &hmr RCMD SEMI &none
-&none &kp Z &kp X &kp C &lt NAV V &kp B
-                        &kp N &lt NAV M &kp COMMA &kp DOT &kp FSLH &none
-      &lt NAV SPACE &lt SYMB GRAVE &kp LBKT
-                        &kp RBKT &lt SYMB SQT &lt NAV RET
+&none &kp GRAVE &kp L &kp Y &lt SYMB P AS(K)
+                        AS(Z) &lt SYMB F &kp O &kp U &kp BSLH &none
+&none &hml LCMD C &hml LALT R &hml LCTRL S &hsl LSHFT T &hml LCMD G
+                        &hmr RCMD X &hsr RSHFT SPACE &hmr RCTRL E &hmr LALT A &hmr RCMD I &none
+&none &kp J &kp V &kp M &lt NAV D &kp B
+                        &kp Q &lt NAV W &kp COMMA &kp DOT &kp FSLH &none
+      &lt NAV H &lt SYMB COLON &kp MINUS
+                        &kp EQUAL &lt SYMB SQT &lt NAV N
             >;
         };
 
