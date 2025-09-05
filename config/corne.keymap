@@ -425,10 +425,12 @@
         };
 
         // would this work for conditional layer?
-        to-misc-2rthumb {
-            bindings = <&to_misc>;
-            key-positions = <40 41>;  // 2rthumb
-        };
+        // no it doesn't, as per warning note at the bottom of https://zmk.dev/docs/keymaps/conditional-layers
+        // conditional layer only activated when if-layers conditions are fully met
+        /* to-misc-2rthumb { */
+        /*     bindings = <&to_misc>; */
+        /*     key-positions = <40 41>;  // 2rthumb */
+        /* }; */
     };
 
     conditional_layers {
@@ -461,7 +463,7 @@
                 <&macro_tap>,
                 <&to DFLT>,
                 <&macro_tap>,
-                <&kp F18>;
+                <&kp F13>;
         };
 
         to_canary: to_canary {
@@ -472,7 +474,7 @@
                 <&macro_tap>,
                 <&to CANARY>,
                 <&macro_tap>,
-                <&kp F19>;
+                <&kp F14>;
         };
 
         to_symbol: to_symbol {
@@ -483,7 +485,7 @@
                 <&macro_tap>,
                 <&to SYMB>,
                 <&macro_tap>,
-                <&kp F20>;
+                <&kp F15>;
         };
 
         to_nav: to_nav {
@@ -494,7 +496,7 @@
                 <&macro_tap>,
                 <&to NAV>,
                 <&macro_tap>,
-                <&kp F21>;
+                <&kp F16>;
         };
 
         to_misc: to_misc {
@@ -505,7 +507,7 @@
                 <&macro_tap>,
                 <&to MISC>,
                 <&macro_tap>,
-                <&kp F22>;
+                <&kp F17>;
         };
     };
 
