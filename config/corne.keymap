@@ -19,9 +19,6 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
 #include <dt-bindings/zmk/pointing.h>
 
-/* this has to be used like AS(Q) not as &kp AS(Q). &as is defined below in behaviors */
-#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
-
 #define DEFAULT 0
 #define CANARY 1
 #define SYMBOL 2
@@ -32,6 +29,11 @@
 #define SYMB SYMBOL
 #define NAV NAVIGATION
 #define MISC MISCELLANEOUS
+
+/* this has to be used like AS(Q) not as &kp AS(Q). &as is defined below in behaviors */
+#define AS(keycode) &as LS(keycode) keycode
+#define CAPSORWORD &caps 0 0
+#define LTCOLONSEMI(layer) &layer_colon_semi layer 0
 
 &mt {
     // default
@@ -188,6 +190,7 @@
         // to produce caplock when tap and cap_word when hold more than tapping-term-ms (default 200)
         caps: caps_or_capsword {
             compatible = "zmk,behavior-hold-tap";
+            label = "CAPS_OR_CAPSWORD";
             #binding-cells = <2>;
             // default is hold-preferred
             flavor = "tap-preferred";
@@ -212,7 +215,8 @@
             bindings = <&lt 2 ENTER>, <&lang_m>;
         };
 
-        mmvu_or_mscd: mmvu_or_mscu {
+        // using alt as modifier as it rarely needed for mouse movement and easy for one hand mouse scroll
+        mmvu_or_mscd: mmvu_or_mscd {
             compatible = "zmk,behavior-mod-morph";
             label = "MMVUORMSCD";
             bindings = <&mmv MOVE_UP>, <&msc SCRL_DOWN>;
@@ -220,10 +224,26 @@
             mods = <(MOD_LALT)>;
         };
 
-        mmvd_or_mscu: mmvd_or_mscd {
+        mmvd_or_mscu: mmvd_or_mscu {
             compatible = "zmk,behavior-mod-morph";
             label = "MMVDORMSCU";
             bindings = <&mmv MOVE_DOWN>, <&msc SCRL_UP>;
+            #binding-cells = <0>;
+            mods = <(MOD_LALT)>;
+        };
+
+        mmvl_or_mscl: mmvl_or_mscl {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MMVLORMSCL";
+            bindings = <&mmv MOVE_LEFT>, <&msc SCRL_LEFT>;
+            #binding-cells = <0>;
+            mods = <(MOD_LALT)>;
+        };
+
+        mmvr_or_mscr: mmvr_or_mscr {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MMVRORMSCR";
+            bindings = <&mmv MOVE_RIGHT>, <&msc SCRL_RIGHT>;
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
@@ -237,12 +257,12 @@
         };
 
         // a placeholder like 0 should be used when using this in keymap, cause it expects 2 args
-        lt_symb_colon_semi: lt_symb_colon_semi {
+        layer_colon_semi: layer_colon_semi {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_HOLD_COLON_SEMI";
             flavor = "tap-preferred";
             #binding-cells = <2>;
-            bindings = <&kp>, <&colon_or_semi>;
+            bindings = <&mo>, <&colon_or_semi>;
             tapping-term-ms = <200>;
         };
 
@@ -312,19 +332,20 @@
     combos {
         compatible = "zmk,combos";
 
+        // tap for capsword, hold for caps
         capsAQ {
-            bindings = <&kp CAPS>;
+            bindings = <CAPSORWORD>;
             key-positions = <1 13>;
-        };
-
-        escJK {
-            bindings = <&kp ESC>;
-            key-positions = <19 20>;
         };
 
         capswordZA {
             bindings = <&caps_word>;
             key-positions = <25 13>;
+        };
+
+        escJK {
+            bindings = <&kp ESC>;
+            key-positions = <19 20>;
         };
 
         tabDF {
@@ -555,7 +576,7 @@
                         &hmr RCMD X &hsr RSHFT SPACE &hmr RCTRL E &hmr LALT A &hmr RCMD I &none
 &none &kp J &kp V &kp M &lt NAV D &kp B
                         &kp Q &lt NAV W &kp COMMA &kp DOT &kp FSLH &none
-      &lt NAV H &lt_symb_colon_semi 0 0 &kp MINUS
+      &lt NAV H LTCOLONSEMI(SYMB) &kp MINUS
                         &kp EQUAL &lt SYMB SQT &lt NAV N
             >;
         };
@@ -579,7 +600,7 @@
             // do i need &msc SCRL_DOWN/SCRL_UP/SCRL_RIGHT/SCRL_LEFT
             bindings = <
 &none &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LC(LS(TAB))
-                          &mmv MOVE_LEFT &mmvd_or_mscu &mmvu_or_mscd &mmv MOVE_RIGHT &mkp LCLK &none
+                          &mmvl_or_mscl &mmvd_or_mscu &mmvu_or_mscd &mmvr_or_mscr &mkp LCLK &none
 &none &hml RCMD LG(N1) &hml LALT LG(N2) &hml LCTRL LG(N3) &hsl LSHFT LG(N4) &hml LCMD LC(TAB)
                           &hmr LCMD LEFT &hsr RSHFT DOWN &hmr RCTRL UP &hmr LALT RIGHT &mkp RCLK &none
 &none &F1orF6 &F2orF7 &F3orF8 &F4orF9 &F5orF10
