@@ -399,6 +399,19 @@
             key-positions = <31 41>;  // rthumb+m
             layers = <DFLT CANARY NAV>;
         };
+
+        // v+spc for symmetry on the left
+        toggle-nav-lthumb-v {
+            bindings = <&tog NAV>;
+            key-positions = <28 36>;  // lthumb+v
+            layers = <DFLT CANARY NAV>;
+        };
+
+        // would this work for conditional layer?
+        toggle-misc-2rthumb {
+            bindings = <&tog NAV>;
+            key-positions = <40 41>;  // 2rthumb
+        };
     };
 
     conditional_layers {
@@ -477,10 +490,10 @@
         symbol_layer {  // layer 2
             display-name = "symbol-layer";
             bindings = <
-&none &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5)
+&none &kp N1 &kp N2 &kp N3 &kp N4 &kp N5
                           &kp PLUS &kp N7 &kp N8 &kp N9 &kp EQUAL &none
-&none &hml LCMD EXCL &hml LALT AT &hml LCTRL HASH &hml LSHFT DLLR &mt LCMD PRCNT
-                          &mt RCMD MINUS &hmr RSHFT N4 &hmr RCTRL N5 &hmr LALT N6 &hmr RCMD UNDER &none
+&none &hml LCMD EXCL &hml LALT AT &hml LCTRL HASH &hsl LSHFT DLLR &hml LCMD PRCNT
+                          &hmr RCMD MINUS &hsr RSHFT N4 &hmr RCTRL N5 &hmr LALT N6 &hmr RCMD UNDER &none
 &none &kp CARET &kp AMPS &kp ASTRK &none &none
                           &kp N0 &kp N1 &kp N2 &kp N3 &kp BSLH &none
       &mo NAV &mo NAV &none
@@ -492,26 +505,26 @@
             display-name = "nav-layer";
             // do i need &msc SCRL_DOWN/SCRL_UP/SCRL_RIGHT/SCRL_LEFT
             bindings = <
-&none &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N4) &kp LG(N5)
+&none &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LC(LS(TAB))
                           &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &mkp LCLK &none
-&none &kp LCMD &kp LALT &kp LCTRL &kp LSHFT &F11orF12
-                          &kp LEFT &hmr RSHFT DOWN &hmr RCTRL UP &hmr LALT RIGHT &mkp RCLK &none
+&none &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N4) &kp LC(TAB)
+                          &hmr LCMD LEFT &hsr RSHFT DOWN &hmr RCTRL UP &hmr LALT RIGHT &mkp RCLK &none
 &none &F1orF6 &F2orF7 &F3orF8 &F4orF9 &F5orF10
                           &kp HOME &kp PG_DN &kp PG_UP &kp END &kp INS &none
-      &none &mo SYMB &none  &kp K_BACK &lt SYMB K_FORWARD &none
+      &F11orF12 &mo SYMB &none  &kp K_BACK &lt SYMB K_FORWARD &none
             >;
         };
 
         misc_layer {  // layer 4
             display-name = "misc-layer";
             bindings = <
-&none &bt BT_CLR &none &none &none &none
-                          &kp K_MUTE &kp K_PREVIOUS &kp K_PLAY_PAUSE &kp K_NEXT &none &none
-&none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+&none &none &none &none &none &none
+                          &kp K_MUTE &kp K_PREVIOUS &kp K_NEXT &kp K_PLAY_PAUSE &none &none
+&none &none &kp LALT &kp LCTRL &kp LSHFT &kp LCMD
                           &kp C_VOL_UP &kp C_BRI_UP &kp K_CMENU &kp K_LOCK &kp PSCRN &none
-&none &bootloader &to DFLT &to CANARY &to SYMB &to NAV
-                          &kp C_VOL_DN &kp C_BRI_DN &none &none &bootloader &none
-      &none &none &none  &none &none &none
+&none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+                          &kp C_VOL_DN &kp C_BRI_DN &none &none &none &none
+      &bt BT_CLR &none &bootloader  &bootloader &none &none
             >;
         };
     };
