@@ -424,16 +424,8 @@
     };
 
     // todo:
-    //  - sticky layer / sticky key / tapdance to make aka emacs hydra sequences
-    //  - toggle layer for browser nav ctrl+tab / ctrl+shift+tab
-    //  - sticky/toggle layer for text nav aka vim: arrows / pgup/dn / home / end
-    //  - toggle layer for mouse
-    //    - &mkp LCLK/RCLK/MCLK
-    //    - &mmv MOVE_DOWN/MOVE_UP/MOVE_RIGHT/MOVE_LEFT
-    //    - &msc SCRL_DOWN/etc
-    //  - layer/sticky for tmux/termux/browser-nav
+    //  - toggle layer for browser nav ctrl+tab / ctrl+shift+tab, for tmux nav, for windows nav (F13,..)
     //  - try usb logging, output selection for usb logging if needed (adjust layer)
-    //  - soft_off - this is actually only needed for some keyboards without power switch
     //  - read all configuration docs
     // notes:
     //  - keycodes: https://zmk.dev/docs/keymaps/list-of-keycodes
@@ -442,6 +434,7 @@
     //  - forward/back are registered globally on android (TUCPro) - e.g. chrome page forward/back, termux just goes to home on 'back'
     //  - scrolllock doesn't have effect on android, scrollup/scrolldown essentially work like pgup/pgdn (<prior>/<next> in emacs) but bound to XF86Scroll.. on 
     //  - right alt does't work on android for some reason, for now using left alt only
+    //  - soft_off - this is actually only needed for some keyboards without power switch
     keymap {
         compatible = "zmk,keymap";
         default_layer {  // layer 0
@@ -496,6 +489,7 @@
 
         nav_layer {  // layer 3
             display-name = "nav-layer";
+            // do i need &msc SCRL_DOWN/SCRL_UP/SCRL_RIGHT/SCRL_LEFT
             bindings = <
 &none &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N4) &kp LG(N5)
                           &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &mkp LCLK &none
