@@ -332,12 +332,12 @@
             key-positions = <32 31>;
         };
 
-hhhey
-
         lsqbrRT {
             bindings = <&kp LBRKT>;
             key-positions = <4 5>;
         };
+
+hhhey
 
         rsqbrYU {
             bindings = <&kp RBRKT>;
