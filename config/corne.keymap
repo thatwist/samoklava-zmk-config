@@ -109,7 +109,7 @@
             // was 250, default 200
             tapping-term-ms = <250>;
             // when tapping quickly again within this value ms it will trigger tap
-            quick-tap-ms = <180>;
+            quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
             // note that this has no actual effect for tap-preffered, only for hold-preferred or balanced
             hold-trigger-key-positions = <
@@ -146,7 +146,7 @@
             flavor = "balanced";
             require-prior-idle-ms = <125>;
             tapping-term-ms = <250>;
-            quick-tap-ms = <180>;
+            quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <
                 1  2  3  4  5
@@ -232,18 +232,19 @@
             mods = <(MOD_LALT)>;
         };
 
-        mmvl_or_mscl: mmvl_or_mscl {
+        /* scroll works in an opposite direction for me for some reason */
+        mmvl_or_mscr: mmvl_or_mscr {
             compatible = "zmk,behavior-mod-morph";
-            label = "MMVLORMSCL";
-            bindings = <&mmv MOVE_LEFT>, <&msc SCRL_LEFT>;
+            label = "MMVLORMSCR";
+            bindings = <&mmv MOVE_LEFT>, <&msc SCRL_RIGHT>;
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
 
-        mmvr_or_mscr: mmvr_or_mscr {
+        mmvr_or_mscl: mmvr_or_mscl {
             compatible = "zmk,behavior-mod-morph";
-            label = "MMVRORMSCR";
-            bindings = <&mmv MOVE_RIGHT>, <&msc SCRL_RIGHT>;
+            label = "MMVRORMSCL";
+            bindings = <&mmv MOVE_RIGHT>, <&msc SCRL_LEFT>;
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
@@ -411,15 +412,14 @@
             key-positions = <29 28>;
         };
 
-        to-default-sd {
+        to-default-kl {
             bindings = <&to_default>;
-            key-positions = <14 15>;  // sd
+            key-positions = <20 21>;  // kl
         };
 
-        // on/off toggle combo for these two layers
-        to-canary-kl {
+        to-canary-sd {
             bindings = <&to_canary>;
-            key-positions = <20 21>;  // kl
+            key-positions = <14 15>;  // sd
             /* layers = <DFLT CANARY>; */
         };
 
@@ -576,8 +576,8 @@
                         &hmr RCMD X &hsr RSHFT SPACE &hmr RCTRL E &hmr LALT A &hmr RCMD I &none
 &none &kp J &kp V &kp M &lt NAV D &kp B
                         &kp Q &lt NAV W &kp COMMA &kp DOT &kp FSLH &none
-      &lt NAV H LTCOLONSEMI(SYMB) &kp MINUS
-                        &kp EQUAL &lt SYMB SQT &lt NAV N
+      &lt NAV H LTCOLONSEMI(SYMB) AS(MINUS)
+                        AS(EQUAL) &lt SYMB SQT &lt NAV N
             >;
         };
 
@@ -600,7 +600,7 @@
             // do i need &msc SCRL_DOWN/SCRL_UP/SCRL_RIGHT/SCRL_LEFT
             bindings = <
 &none &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LC(LS(TAB))
-                          &mmvl_or_mscl &mmvd_or_mscu &mmvu_or_mscd &mmvr_or_mscr &mkp LCLK &none
+                          &mmvl_or_mscr &mmvd_or_mscu &mmvu_or_mscd &mmvr_or_mscl &mkp LCLK &none
 &none &hml RCMD LG(N1) &hml LALT LG(N2) &hml LCTRL LG(N3) &hsl LSHFT LG(N4) &hml LCMD LC(TAB)
                           &hmr LCMD LEFT &hsr RSHFT DOWN &hmr RCTRL UP &hmr LALT RIGHT &mkp RCLK &none
 &none &F1orF6 &F2orF7 &F3orF8 &F4orF9 &F5orF10
