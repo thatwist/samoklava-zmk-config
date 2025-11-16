@@ -218,25 +218,26 @@
 
         // this allows tap,hold to quickly use scroll on nav layer without modifier
         // wip: define macro with wait time and hold/tap for the second in tap tap-dance
-        mscu_dance: tap_dance_mod_tap {
+        mmvu_mscu_dance: mmvu_mscu_dance {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mmv MOVE_UP>, <&msc SCRL_UP>;
+            bindings = <&mmv MOVE_UP>, <&mscu_m>;
         };
 
-        mscd_dance: tap_dance_mod_tap {
+        mmvd_mscd_dance: mmvd_mscd_dance {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mmv MOVE_DOWN>, <&msc SCRL_DOWN>;
+            bindings = <&mmv MOVE_DOWN>, <&mscd_m>;
         };
 
         // using alt as modifier as it rarely needed for mouse movement and easy for one hand mouse scroll
         mmvu_or_mscu: mmvu_or_mscu {
             compatible = "zmk,behavior-mod-morph";
             label = "MMVUORMSCU";
-            bindings = <&mmv MOVE_UP>, <&msc SCRL_UP>;
+            //bindings = <&mmv MOVE_UP>, <&msc SCRL_UP>;
+            bindings = <&mmvu_mscu_dance>, <&msc SCRL_UP>;
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
@@ -244,7 +245,8 @@
         mmvd_or_mscd: mmvd_or_mscd {
             compatible = "zmk,behavior-mod-morph";
             label = "MMVDORMSCD";
-            bindings = <&mmv MOVE_DOWN>, <&msc SCRL_DOWN>;
+            //bindings = <&mmv MOVE_DOWN>, <&msc SCRL_DOWN>;
+            bindings = <&mmvd_mscd_dance>, <&msc SCRL_DOWN>;
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
@@ -502,6 +504,24 @@
                 <&kp LCMD>;
         };
 
+        mscu_m: mscu_m {
+            compatible = "zmk,behavior-macro";
+            label = "MSCU_M";
+            //wait-ms = <30>;
+            //tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings = <&macro_tap_time 500>, <&msc SCRL_UP>;
+        };
+
+        mscd_m: mscd_m {
+            compatible = "zmk,behavior-macro";
+            label = "MSCD_M";
+            //wait-ms = <30>;
+            //tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings = <&macro_tap_time 500>, <&msc SCRL_DOWN>;
+        };
+
         to_default: to_default {
             compatible = "zmk,behavior-macro";
             label = "TO_DFLT";
@@ -595,6 +615,7 @@
       &lt NAV H LTCOLONSEMI(SYMB) AS(MINUS)
                         AS(EQUAL) &lt SYMB SQT &lt NAV N
             >;
+            // todo: -+ =_
         };
 
         symbol_layer {  // layer 2
@@ -621,7 +642,7 @@
                           &hmr LCMD LEFT &hsr RSHFT DOWN &hmr RCTRL UP &hmr LALT RIGHT &mkp RCLK &none
 &none &F1orF6 &F2orF7 &F3orF8 &F4orF9 &F5orF10
                           &kp HOME &hsr RSHFT PG_DN &hsr RSHFT PG_UP &kp END &kp INS &none
-      &F11orF12 &mo SYMB &kp PSCRN  &kp K_BACK &lt SYMB K_FORWARD &kp K_CMENU
+      &F11orF12 &mo SYMB &kp PSCRN  &kp K_BACK &lt SYMB K_FORWARD &mt RCTRL K_CMENU
             >;
         };
 
