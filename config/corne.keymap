@@ -236,8 +236,8 @@
         mmvu_or_mscu: mmvu_or_mscu {
             compatible = "zmk,behavior-mod-morph";
             label = "MMVUORMSCU";
-            //bindings = <&mmv MOVE_UP>, <&msc SCRL_UP>;
-            bindings = <&mmvu_mscu_dance>, <&msc SCRL_UP>;
+            bindings = <&mmv MOVE_UP>, <&msc SCRL_UP>;
+            //bindings = <&mmvu_mscu_dance>, <&msc SCRL_UP>;
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
@@ -245,8 +245,8 @@
         mmvd_or_mscd: mmvd_or_mscd {
             compatible = "zmk,behavior-mod-morph";
             label = "MMVDORMSCD";
-            //bindings = <&mmv MOVE_DOWN>, <&msc SCRL_DOWN>;
-            bindings = <&mmvd_mscd_dance>, <&msc SCRL_DOWN>;
+            bindings = <&mmv MOVE_DOWN>, <&msc SCRL_DOWN>;
+            //bindings = <&mmvd_mscd_dance>, <&msc SCRL_DOWN>;
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
@@ -642,9 +642,10 @@
                           &hmr LCMD LEFT &hsr RSHFT DOWN &hmr RCTRL UP &hmr LALT RIGHT &mkp RCLK &none
 &none &F1orF6 &F2orF7 &F3orF8 &F4orF9 &F5orF10
                           &kp HOME &hsr RSHFT PG_DN &hsr RSHFT PG_UP &kp END &kp INS &none
-      &F11orF12 &mo SYMB &kp PSCRN  &kp K_BACK &lt SYMB K_FORWARD &mt RCTRL K_CMENU
+      &F11orF12 &mo SYMB &kp PSCRN
+                          &kp K_BACK &lt SYMB K_FORWARD &mt RCTRL K_CMENU
             >;
-        };
+        }
 
         misc_layer {  // layer 4
             display-name = "misc-layer";
@@ -655,7 +656,8 @@
                           &kp C_VOL_UP &kp C_BRI_UP &kp K_CMENU &kp K_LOCK &sys_reset &none
 &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
                           &kp C_VOL_DN &kp C_BRI_DN &none &none &none &none
-      &bt BT_CLR &none &none  &none &none &out OUT_TOG
+      &bt BT_CLR &none &none
+                          &none &none &out OUT_TOG
             >;
         };
     };
