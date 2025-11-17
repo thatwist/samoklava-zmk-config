@@ -645,7 +645,7 @@
       &F11orF12 &mo SYMB &kp PSCRN
                           &kp K_BACK &lt SYMB K_FORWARD &mt RCTRL K_CMENU
             >;
-        }
+        };
 
         misc_layer {  // layer 4
             display-name = "misc-layer";
