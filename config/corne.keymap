@@ -16,7 +16,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 // docs/keymaps/behaviors/mouse-emulation.md
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
 #include <dt-bindings/zmk/pointing.h>
 
@@ -66,8 +66,8 @@
 &mmv {
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
-    time-to-max-speed-ms = <300>;
-    acceleration-exponent = <1>;
+    time-to-max-speed-ms = <500>;
+    acceleration-exponent = <2>;
 };
 
 &msc {
@@ -266,6 +266,11 @@
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
+
+        /* WIP: switching to mouse scroll by holding that key to the right */
+        /* would be nice but then its impossible to distinguish actual mscr vs alt  */
+        /* alt_mmvr_or_mscr: alt_mmvr_or_mscr {
+         * } */
 
         colon_or_semi: colon_or_semi {
             compatible = "zmk,behavior-mod-morph";
@@ -643,7 +648,7 @@
 &none &F1orF6 &F2orF7 &F3orF8 &F4orF9 &F5orF10
                           &kp HOME &hsr RSHFT PG_DN &hsr RSHFT PG_UP &kp END &kp INS &none
       &F11orF12 &mo SYMB &kp PSCRN
-                          &kp K_BACK &lt SYMB K_FORWARD &mt RCTRL K_CMENU
+                          &kp K_BACK &lt SYMB K_FORWARD &mt LALT K_CMENU
             >;
         };
 
